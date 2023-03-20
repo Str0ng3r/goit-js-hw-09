@@ -32,7 +32,7 @@ const options = {
     },
   };
 
-flatpickr(inputData,options)
+flatpickr(inputData,options);
 
 
 function convertMs(ms) {
@@ -61,10 +61,12 @@ function convertMs(ms) {
       }
     }
     return value;
-  }
+  };
 
 
 buttonStart.addEventListener('click',() => {
+
+  const intervalId =
 setInterval(() => {
     msData -= 1000;
     const scoresTimes = convertMs(msData);
@@ -73,6 +75,11 @@ setInterval(() => {
  hoursScore.textContent = scoresTimes.hours;
  minutesScore.textContent = scoresTimes.minutes;
 secondsScore.textContent = scoresTimes.seconds;
+if(daysScore.textContent === '00' & hoursScore.textContent === '00' & minutesScore.textContent  === '00' & secondsScore.textContent === '00'){
+  clearInterval(intervalId);
+      }
     },1000)
 });
+
+
 
